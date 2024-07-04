@@ -76,7 +76,7 @@ return {
         }),
 
         -- setup must be called before loading
-        vim.cmd.colorscheme "catppuccin-mocha"
+        -- vim.cmd.colorscheme "catppuccin"
     },
   -- Configure LazyVim to load gruvbox
   {
@@ -87,15 +87,15 @@ return {
   },
 
   -- change trouble config
-  {
-    "folke/trouble.nvim",
-    disabled = true,
-    -- opts will be merged with the parent spec
-    opts = { use_diagnostic_signs = true },
-  },
+  -- {
+  --   "folke/trouble.nvim",
+  --   disabled = true,
+  --   -- opts will be merged with the parent spec
+  --   opts = { use_diagnostic_signs = true },
+  -- },
 
   -- disable trouble
-  { "folke/trouble.nvim",      enabled = false },
+  -- { "folke/trouble.nvim",      enabled = false },
 
   -- override nvim-cmp and add cmp-emoji
   {
@@ -108,28 +108,28 @@ return {
   },
 
   -- change some telescope options and a keymap to browse plugin files
-  {
-    "nvim-telescope/telescope.nvim",
-    keys = {
-      -- add a keymap to browse plugin files
-      -- stylua: ignore
-      {
-        "<leader>fp",
-        function() require("telescope.builtin").find_files({ cwd = require("lazy.core.config").options.root }) end,
-        desc = "Find Plugin File",
-      },
-    },
-    -- change some options
-    opts = {
-      defaults = {
-        layout_strategy = "horizontal",
-        layout_config = { prompt_position = "top" },
-        sorting_strategy = "ascending",
-        winblend = 0,
-      },
-    },
-  },
-
+  -- {
+  --   "nvim-telescope/telescope.nvim",
+  --   keys = {
+  --     -- add a keymap to browse plugin files
+  --     -- stylua: ignore
+  --     {
+  --       "<leader>fp",
+  --       function() require("telescope.builtin").find_files({ cwd = require("lazy.core.config").options.root }) end,
+  --       desc = "Find Plugin File",
+  --     },
+  --   },
+  --   -- change some options
+  --   opts = {
+  --     defaults = {
+  --       layout_strategy = "horizontal",
+  --       layout_config = { prompt_position = "top" },
+  --       sorting_strategy = "ascending",
+  --       winblend = 0,
+  --     },
+  --   },
+  -- },
+  --
   -- add pyright to lspconfig
   -- {
   --   "neovim/nvim-lspconfig",
@@ -188,15 +188,18 @@ return {
     opts = {
       ensure_installed = {
         "bash",
+        "dockerfile",
         "html",
         "javascript",
         "json",
         "lua",
         "markdown",
         "markdown_inline",
+        "ninja",
         "python",
         "query",
         "regex",
+        "rst",
         "svelte",
         "tsx",
         "typescript",
@@ -230,15 +233,15 @@ return {
   },
 
   -- or you can return new options to override all the defaults
-  {
-    "nvim-lualine/lualine.nvim",
-    event = "VeryLazy",
-    opts = function()
-      return {
-        --[[add your custom lualine config here]]
-      }
-    end,
-  },
+  -- {
+  --   "nvim-lualine/lualine.nvim",
+  --   event = "VeryLazy",
+  --   opts = function()
+  --     return {
+  --       --[[add your custom lualine config here]]
+  --     }
+  --   end,
+  -- },
 
   -- use mini.starter instead of alpha
   { import = "lazyvim.plugins.extras.ui.mini-starter" },
@@ -255,6 +258,7 @@ return {
         "shellcheck",
         "shfmt",
         "flake8",
+        "ruff"
       },
     },
   },
@@ -310,4 +314,5 @@ return {
       })
     end,
   },
+  
 }
